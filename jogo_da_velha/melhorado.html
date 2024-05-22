@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Jogo da Velha</title>
+
+    <!-- CSS -->
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            color: #333;
+            margin: 10px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        td {
+            width: 80px;
+            height: 80px;
+        }
+
+        button {
+            width: 100%;
+            height: 100%;
+            background-color: #f2f2f2;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+
+        .vertical {
+            border-left: 2px solid #333;
+            border-right: 2px solid #333;
+        }
+
+        .horizontal {
+            border-top: 2px solid #333;
+            border-bottom: 2px solid #333;
+        }
+
+        #reiniciar {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 20px;
+        }
+
+        #reiniciar:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        #info {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        #placar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 300px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        #placar input {
+            width: 100px;
+            height: 30px;
+        }
+
+        #player {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>JS : Workspace</h2>
+    <h1>Tic Tac Toe</h1>
+    <div id="placar">
+        <div>
+            <label for="player1">Player 1:</label>
+            <input type="text" id="player1" placeholder="Player 1">
+        </div>
+        <div>
+            <label for="player2">Player 2:</label>
+            <input type="text" id="player2" placeholder="Player 2">
+        </div>
+    </div>
+    <h3 id="player">Waiting for Player!</h3>
+    <table>
+        <tr>
+            <td>
+                <button id="cell01" onclick="play(1)"></button>
+            </td>
+            <td class="vertical">
+                <button id="cell02" onclick="play(2)"></button>
+            </td>
+            <td>
+                <button id="cell03" onclick="play(3)"></button>
+            </td>
+        </tr>
+        <tr>
+            <td class="horizontal">
+                <button id="cell04" onclick="play(4)"></button>
+            </td>
+            <td class="vertical horizontal">
+                <button id="cell05" onclick="play(5)"></button>
+            </td>
+            <td class="horizontal">
+                <button id="cell06" onclick="play(6)"></button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="cell07" onclick="play(7)"></button>
+            </td>
+            <td class="vertical">
+                <button id="cell08" onclick="play(8)"></button>
+            </td>
+            <td>
+                <button id="cell09" onclick="play(9)"></button>
+            </td>
+        </tr>
+    </table>
+    <h3 id="info"></h3>
+    <button id="reiniciar" onclick="reiniciarJogo()">Reiniciar Jogo</button>
+
+    <script>
+        // Data
+        var cell = new Array(10);
+        var gameover = false;
+        var winner = false;
+        var player1 = "Player 1";
+        var player2 = "Player 2";
+        var pontuacao = {
+            player1: 0,
+            player2: 0
+        };
+        reiniciarVariaveis();
+
+        // Reinicializa as variáveis do jogo
+        function reiniciarVariaveis() {
+            cell.fill(0);
+            gameover = false;
+            winner = false;
+            document.getElementById("player").innerHTML = "Waiting for " + player1 + "!";
+            document.getElementById("info").innerHTML = "";
+            resetarTabuleiro();
+            atualizarPlacar();
+        }
+
+        // Reseta as cores dos botões do tabuleiro
+        function resetarTabuleiro() {
+            for (let i = 1; i <= 9; i++) {
+                document.getElementById("cell0" + i).style.backgroundColor = "#f2f2f2";
+                document.getElementById("cell0" + i).innerHTML = "";
+            }
+        }
+
+        // Reinicia o jogo
+        function reiniciarJogo() {
+            reiniciarVariaveis();
+        }
+
+        // Verifica a jogada e atualiza o estado do jogo
+        function play(num) {
+            if (!gameover) {
+                if (cell[num] > 0) {
+                    alert("Cell filled! Try again!");
+                } else {
+                    update(num);
+                }
+            }
+        }
+
+        // Atualiza o estado do jogo após uma jogada
+        function update(num) {
+            var currentPlayer = (cell[0] % 2) + 1;
+            var playerName = currentPlayer === 1 ? player1 : player2;
+            cell[num] = currentPlayer;
+            document.getElementById("cell0" + num).style.backgroundColor = (currentPlayer === 1 ? '#FF5733':'#3498db');
+            document.getElementById("cell0" + num).innerHTML = (currentPlayer === 1 ? 'X' : 'O');
+            cell[0]++;
+            verificarVencedor(currentPlayer);
+            atualizarPlacar();
+            document.getElementById("player").innerHTML = "Waiting for " + (currentPlayer === 1 ? player2 : player1) + "!";
+        }
+
+        // Verifica se há um vencedor
+        function verificarVencedor(currentPlayer) {
+            var combinacoesVencedoras = [
+                [1, 2, 3], [4, 5, 6], [7, 8, 9],    // horizontal
+                [1, 4, 7], [2, 5, 8], [3, 6, 9],    // vertical
+                [1, 5, 9], [3, 5, 7]                // diagonal
+            ];
+
+            for (let i = 0; i < combinacoesVencedoras.length; i++) {
+                if (currentPlayer === cell[combinacoesVencedoras[i][0]] && currentPlayer === cell[combinacoesVencedoras[i][1]] && currentPlayer === cell[combinacoesVencedoras[i][2]]) {
+                    gameover = true;
+                    winner = true;
+                    pontuacao[currentPlayer === 1 ? 'player1' : 'player2']++;
+                    return;
+                }
+            }
+
+            if (cell[0] === 10 && !winner) {
+                mostrarEmpate();
+            }
+        }
+
+        // Atualiza o placar
+        function atualizarPlacar() {
+            document.getElementById("placar").innerHTML = `
+                <div>${player1}: ${pontuacao.player1}</div>
+                <div>${player2}: ${pontuacao.player2}</div>
+            `;
+        }
+
+        // Atualiza o nome do jogador 1
+        document.getElementById("player1").addEventListener("input", function() {
+            player1 = this.value || "Player 1";
+            document.getElementById("player").innerHTML = "Waiting for " + player1 + "!";
+        });
+
+        // Atualiza o nome do jogador 2
+        document.getElementById("player2").addEventListener("input", function() {
+            player2 = this.value || "Player 2";
+            document.getElementById("player").innerHTML = "Waiting for " + player2 + "!";
+        });
+    </script>
+
+</body>
+
+</html>

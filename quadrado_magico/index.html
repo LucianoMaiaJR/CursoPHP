@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quadrado Mágico 3x3</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Quadrado Mágico 3x3</h1>
+    <div id="magic-square">
+        <div class="row">
+            <div class="cell"><input type="text" maxlength="1" id="cell0"></div>
+            <div class="cell"><input type="text" maxlength="1" id="cell1"></div>
+            <div class="cell"><input type="text" maxlength="1" id="cell2"></div>
+            <div class="equals">=</div>
+            <div class="sum" id="row-sum-0"></div>
+        </div>
+        <div class="row">
+            <div class="cell"><input type="text" maxlength="1" id="cell3"></div>
+            <div class="cell"><input type="text" maxlength="1" id="cell4"></div>
+            <div class="cell"><input type="text" maxlength="1" id="cell5"></div>
+            <div class="equals">=</div>
+            <div class="sum" id="row-sum-1"></div>
+        </div>
+        <div class="row">
+            <div class="cell"><input type="text" maxlength="1" id="cell6"></div>
+            <div class="cell"><input type="text" maxlength="1" id="cell7"></div>
+            <div class="cell"><input type="text" maxlength="1" id="cell8"></div>
+            <div class="equals">=</div>
+            <div class="sum" id="row-sum-2"></div>
+        </div>
+        <div class="row">
+            <div class="direction_up">
+                <div class="equals">=</div>
+                <div class="sum" id="col-sum-0"></div>
+            </div>
+            <div class="direction_up">
+                <div class="equals">=</div>
+                <div class="sum" id="col-sum-1"></div>
+            </div>
+            <div class="direction_up">
+                <div class="equals">=</div>
+                <div class="sum" id="col-sum-2"></div>
+            </div>
+            <div class="direction_up_none">
+                <div class="equals">=</div>
+                <div class="sum" id="diag-sum-0"></div>
+            </div>
+            <div class="direction_up_none">
+                <div class="equals">=</div>
+                <div class="sum" id="diag-sum-1"></div>
+            </div>
+        </div>
+    </div>
+    <button onclick="checkMagicSquare()">Verificar</button>
+    <button onclick="resetGame()">Resetar</button>
+    <p id="result"></p>
+    <script src="script.js"></script>
+</body>
+</html>
+
