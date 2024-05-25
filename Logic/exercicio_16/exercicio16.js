@@ -1,5 +1,5 @@
 /*
-5- contruir app de IMC, se maior que 25 "acima do peso ideal" caso contrário, "peso OK"
+16- contruir app de IMC, se maior que 25 "acima do peso ideal" caso contrário, "peso OK"
 */
 
 let altura = Number(window.prompt("Digite sua altura: "));

@@ -1,5 +1,5 @@
 /*
-5- contruir app da igual 14, porém  <4 é reprovado, 4< >7 aluno em recuperação, 
+17- contruir app da igual 14, porém  <4 é reprovado, 4< >7 aluno em recuperação, 
 se está em recuperação, pedir nota da recuperaçao, se nota for menor que 5 reprovado, caso contrário aprovado.
 */
 

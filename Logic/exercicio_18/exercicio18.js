@@ -1,6 +1,6 @@
 
 /*
-5- contruir pedra papel tesoura largarto e spock
+18- contruir pedra papel tesoura largarto e spock
 */
 let pontuacao_pc = 0;
 let pontuacao_user = 0;
