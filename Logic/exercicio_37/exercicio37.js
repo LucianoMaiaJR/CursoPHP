@@ -5,13 +5,17 @@
  Caso contrário, exibirá apenas o nome e a cidade digitada (utilizar passagem de parâmetros).
 */
 
-// Declaração de variáveis com Entrada de Dados.
-let num1 = Number (window.prompt("Digite o 1o número: "));
-let num2 = Number (window.prompt("Digite o 2o número: "));
+let nome = String(prompt("Digite seu nome: "));
+let cidade = String(prompt("Digite a cidade que você está: "));
+let pessoa = [];
+pessoa.push(nome,cidade);
 
-// Declaração de variáveis e operações.
-let res = num1 + num2;
-let msg = num1 + " + " + num2 + " = " + res;
+function Pessoa(){
+    if (pessoa[1] == "Rio de Janeiro"){
+        return alert(pessoa + "\nSeja Bem-vindo à Cidade Maravilhosa");
+    } else {
+        return alert(pessoa);
+    }
+}
 
-// Saída de Dados no Alert do Navegador.
-window.alert(msg);
+Pessoa();

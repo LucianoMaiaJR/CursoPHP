@@ -1,5 +1,6 @@
 /*
-1- contruir app de soma
+43- Construa uma página/programa onde o usuário digitará sete números e o programa escreverá, 
+na tela, quantos deles são pares e quantos são ímpares.
 */
 
 // Declaração de variáveis com Entrada de Dados.
