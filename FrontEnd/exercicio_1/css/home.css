@@ -1,0 +1,29 @@
+/*
+    box-sizing: border-box, passa o controle do cálculo para o elemento,
+    fazendo com que o navegador passe a considerar a altura e largura do elemento
+    contando o "padding" e o "border" do elemento. 
+*/
+* {
+    box-sizing: border-box;
+}
+
+h1:hover {
+    background-color: rgb(228, 118, 186);
+}
+
+.ficha {
+    background-color: rgb(144, 144, 189);
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.conteudo {
+    display: flex;
+    justify-content: center;
+}
+.img_class {
+    margin: 10px;
+}
