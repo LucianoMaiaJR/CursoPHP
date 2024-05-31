@@ -167,6 +167,15 @@ img{
     display: flex;
 }
 
+.label-item button {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+
 /* 
 
 No responsive styling handling in this build!
