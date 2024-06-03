@@ -1,0 +1,71 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos para o formulário */
+form {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilos para os rótulos */
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #333;
+}
+
+/* Estilos para os campos de entrada */
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Foco nos campos de entrada */
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Estilos para os botões */
+form .button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+form input[type="submit"],
+form input[type="reset"] {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #007BFF;
+    transition: background-color 0.3s ease-in-out;
+}
+
+form input[type="submit"]:hover,
+form input[type="reset"]:hover {
+    background-color: #0056b3;
+}
