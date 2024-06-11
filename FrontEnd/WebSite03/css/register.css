@@ -1,0 +1,130 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do corpo */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+/* Estilo do título e da linha */
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+hr {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Estilos para o formulário */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Estilos para os rótulos */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilos para os campos de entrada */
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Estilo para o checkbox de Termos e Política de Uso */
+form .terms {
+    font-size: 14px;
+    align-items: center;
+}
+form .terms_1 {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+form .terms input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+form .terms label {
+    font-weight: normal;
+}
+
+form .terms a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+form .terms a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para o grupo de botões */
+form .button-group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+form input[type="submit"],
+form input[type="reset"],
+form input[type="button"] {
+    flex: 1 1 30%;
+    min-width: 100px;
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #007BFF;
+    transition: background-color 0.3s ease-in-out;
+    text-align: center;
+}
+
+form input[type="submit"]:hover,
+form input[type="reset"]:hover,
+form input[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para o link de Login */
+form a:last-of-type {
+    margin-top: 15px;
+    text-align: center;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+form a:last-of-type:hover {
+    text-decoration: underline;
+}
